@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
-             x:Class="AccessibiltyAppSln.MainPage">
+             xmlns:local="clr-namespace:AccessibilityAppSln"
+             x:Class="AccessibiltyAppSln.MainPage.Views">
 
     <Grid VerticalOptions="CenterAndExpand" RowDefinitions="Auto, Auto, Auto, Auto">
         <Image x:Name="MYImage" Grid.Row="0">

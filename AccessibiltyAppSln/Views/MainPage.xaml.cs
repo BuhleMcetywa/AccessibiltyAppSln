@@ -1,10 +1,19 @@
-﻿using Microsoft.Maui;
+﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+using Microsoft.Maui;
+using System.IO;
+using System.Net;
+using System.Net.Security;
 
 namespace AccessibilityAppSln
 {
 	public partial class MainPage : ContentPage
 	{
+		static string subscriptionKey = "12f21ee63980455ab7be9c68cbaf51e3";
+		static string endpoint = "https://imageclassifierbm.cognitiveservices.azure.com/";
+
 		
+
 		public MainPage()
 		{
 			InitializeComponent();
@@ -12,22 +21,21 @@ namespace AccessibilityAppSln
 
 	   async void UploadAndDetectButton_Clicked(object sender, EventArgs e)
 	   {
-			if (MediaPicker.Default.IsCaptureSupported)
+			try
 			{
-				FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
-
-				if (photo != null)
-				{
-					// save the file into local storage
-					string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-
-					using Stream sourceStream = await photo.OpenReadAsync();
-					using FileStream localFileStream = File.OpenWrite(localFilePath);
-
-					await sourceStream.CopyToAsync(localFileStream);
-				}
+				var photo = await MediaPicker.PickPhotoAsync();
+				await LoadPhotoAsync(photo);
 			}
+			catch (FeatureNotSupportedException)
+			{
 
+			}
+			catch(PermissionException pEx)
+			{
+
+			}
+			catch(Exception ex) { 
+			}
 			
 	   }
 		string PhotoPath;
@@ -40,20 +48,34 @@ namespace AccessibilityAppSln
 				return;
 			}
 
-			/*var newFile= Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-			using(var stream  = await photo.OpenReadAsync())
-			using (var newStream = File.OpenWrite(newFile)) 
-				await stream.CopyToAsync(newStream);*/
+			
 
 			PhotoPath = photo.FullPath;
 
-			MYImage.Source = PhotoPath;
-			
-			
+			//MYImage.Source = PhotoPath;
+			//ComputerVisionClient client = Authenticate(endpoint, subscriptionKey);
 
 
-		
+			
+
+			List<VisualFeatureTypes?> features = new List<VisualFeatureTypes?>()
+			{
+				VisualFeatureTypes.Categories, VisualFeatureTypes.Description,
+				VisualFeatureTypes.Faces, VisualFeatureTypes.ImageType,
+				VisualFeatureTypes.Tags, VisualFeatureTypes.Adult,
+				VisualFeatureTypes.Color, VisualFeatureTypes.Brands,
+				VisualFeatureTypes.Objects
+			};
+
+			ImageAnalysis results = await client.AnalyzeImageAsync(PhotoPath, visualFeatures: features);
+
+			Result1.Text = results.ModelVersion;
+			Result2.Text = results.Faces.ToString();
+
+
+
 		}
 	}
-
+	
+	
 }
