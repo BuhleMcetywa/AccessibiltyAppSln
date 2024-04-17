@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibiltyAppSln", "AccessibiltyAppSln\AccessibiltyAppSln.csproj", "{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2985F3A1-EDAB-4723-A0CA-706B3BD998CA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B03250B8-79A2-4378-97FE-DEB56971DDDF}
+	EndGlobalSection
+EndGlobal
