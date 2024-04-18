@@ -10,7 +10,10 @@ namespace AccessibiltyAppSln.Models
 	{
 
 		public string PhotoPath { get; set; }
-		public string Caption { get; set; }
+		public string ImageDescription { get; set; }
+
+		
+
 	}
 }
 

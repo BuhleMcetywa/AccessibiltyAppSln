@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AccessibiltyAppSln.Services;
+using AccessibiltyAppSln.ViewModels;
+using AccessibiltyAppSln.Views;
+using Microsoft.Extensions.Logging;
 
 namespace AccessibilityAppSln
 {
@@ -18,6 +21,12 @@ namespace AccessibilityAppSln
 #if DEBUG
 			builder.Logging.AddDebug();
 #endif
+
+			builder.Services.AddTransient<MainPage>();
+
+			builder.Services.AddSingleton<MainPageViewModel>();
+
+			builder.Services.AddTransient<ComputerVisionServices>();
 
 			return builder.Build();
 		}
