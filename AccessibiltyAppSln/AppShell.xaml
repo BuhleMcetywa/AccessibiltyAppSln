@@ -8,7 +8,7 @@
     Title="AccessibiltyAppSln">
 
     <ShellContent
-        Title="Home"
+        Title="Welcome"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

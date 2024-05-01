@@ -3,16 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AccessibilityAppSln"
              x:Class="AccessibiltyAppSln.Views.MainPage"
-             x:Name="Page">
+             x:Name="Page"
+             BackgroundImageSource="picture.jpeg"
+
+             >
 
     <Grid VerticalOptions="CenterAndExpand" RowDefinitions="Auto, Auto, Auto, Auto">
-        <Image x:Name="MYImage" Grid.Row="0" Source="{Binding SelectedPhoto.PhotoPath}">
-        </Image>
-        <Button Grid.Row="1" BackgroundColor="Black" TextColor="White" Text="Upload Image"  Command="{Binding UploadAndDetectCommand}" />
+       
+        <Button Grid.Row="1" BackgroundColor="Black" TextColor="White" Text="Upload Image"  Command="{Binding UploadAndDetectCommand}" HorizontalOptions="Center" Background="Orange" />
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black" />
         <Grid Grid.Row="2">
-            <Label TextColor="Black" x:Name="Result1" Text="{Binding Captions}"/>
-           
+            <Frame Background="MediumPurple" HorizontalOptions="CenterAndExpand" WidthRequest="500" HeightRequest="400">
+                <Label TextColor="Black" x:Name="Result1" Text="{Binding Captions}"/>
+            </Frame>
+            
         </Grid>
     </Grid>
 
+   
+
 </ContentPage>
+
+

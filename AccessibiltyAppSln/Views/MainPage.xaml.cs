@@ -14,9 +14,6 @@ namespace AccessibiltyAppSln.Views
 		//		new MainPageViewModel(new ComputerVisionServices());
 		}
 
-		private void UploadAndDetectButton_Clicked(object sender, EventArgs e)
-		{
-
-		}
+		
 	}
 }

@@ -57,6 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\backgroundimageforapp.jpeg" />
+	  <None Remove="Resources\Images\picture.jpeg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Azure.AI.Vision.ImageAnalysis" Version="1.0.0-beta.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />

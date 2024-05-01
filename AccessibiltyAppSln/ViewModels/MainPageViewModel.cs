@@ -26,15 +26,7 @@ namespace AccessibiltyAppSln.ViewModels
 
 		public Command UploadAndDetectCommand { get; set; }
 
-		public Photo SelectedPhoto
-		{
-			get => _selectedPhoto;
-			set
-			{
-				_selectedPhoto = value;
-				OnPropertyChanged();
-			}
-		}
+		
 
 		private string _captions;
 
@@ -47,25 +39,24 @@ namespace AccessibiltyAppSln.ViewModels
 			}
 		}
 
+		private bool _isBusy;
 
+		public bool IsBusy
+		{
+			get { return _isBusy; }
+			set { _isBusy = value;
+			
+							OnPropertyChanged();
+						}
+		}
 
 
 		public async Task UploadAndDetectAsync()
 		{
+			IsBusy = true;
 			try
 			{
-				/*		var photo = await MediaPicker.PickPhotoAsync();
-						if (photo != null)
-						{
-							SelectedPhoto.PhotoPath = photo.FullPath;
-
-						var result = await _computerVisionService.AnalyzeImageAsync(SelectedPhoto.PhotoPath);
-
-						SelectedPhoto.ImageDescription = result.DenseCaptions.ToString();
-
-						}
-
-						*/
+				
 
 				if (MediaPicker.Default.IsCaptureSupported)
 				{
@@ -73,8 +64,7 @@ namespace AccessibiltyAppSln.ViewModels
 
 					if (photo != null)
 					{
-						// save the file into local storage
-					//	string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+						
 
 						using Stream sourceStream = await photo.OpenReadAsync();
 
@@ -93,10 +83,9 @@ namespace AccessibiltyAppSln.ViewModels
 
 
 
-					//	using FileStream localFileStream = File.OpenWrite(localFilePath);
-
-						//		await sourceStream.CopyToAsync(localFileStream);
+					
 					}
+					IsBusy = false;
 				}
 
 
